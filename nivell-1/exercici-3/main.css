@@ -1,0 +1,204 @@
+:root {
+    --color-negro:             #000;
+    --color-blanco:            #fff;
+    --color-gris-slate:        #44465e;
+    --color-amarillo-puro:     #ffff00; 
+    --color-amarillo-platano:  #ffe380;
+    --color-amarillo-cobalto:  #ffcc5e;
+    --color-amarillo-ocre:     #e4a434;
+    --color-naranja-mandarina: #f0763a;
+    --color-rojo-bermellon:    #ea584b;
+    --color-rojo-amaranto:     #f94c47;
+    --color-azul-prusia:       #27394e;
+    --color-azul-ceruleo:      #1664a4;
+    --color-azul-claro:        #6399bb;   
+
+    /* Para la visualización final uso 10px (si 1rem = 16px, entonces 0.625rem = 10px) */
+    /* La estructura siguiente podría usarse para escalar el margin y el padding en función de @media*/
+    --margin-large:             0.625rem;  /*1rem;*/
+    --padding-large:            0.625rem;  /*1rem;*/
+    --margin-medium:            0.625rem;  /*0.8125rem;*/
+    --padding-medium:           0.625rem;  /*0.8125rem;*/
+    --margin-small:             0.625rem;
+    --padding-small:            0.625rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.contenedor {  
+    display: flex;
+    flex-direction: column;  
+}
+
+.cabecera {
+    background: var(--color-negro);
+    display: flex;
+    flex-direction: column;
+}   
+
+.cabecera-menu {
+    background: var(--color-azul-prusia);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-logo {
+    background: var(--color-rojo-bermellon);
+    flex: 1 1 auto;
+}
+            
+.menu-contenido-1 {
+    background: var(--color-rojo-bermellon);
+    flex: 5 1 auto;
+}           
+
+.menu-contenido-2 {
+    background: var(--color-rojo-bermellon);
+    flex: 1 1 auto;
+}
+
+.cabecera-contenido {
+    background: var(--color-naranja-mandarina);
+}
+
+h1 {
+    background: var(--color-amarillo-cobalto);
+}
+
+.seccion {
+    background: var(--color-negro);
+    display: flex;
+}
+
+.seccion-articulos {
+    background: var(--color-gris-slate);
+    flex: 2 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.articulos-elemento {
+    background: var(--color-azul-ceruleo);
+}
+
+.articulos-navegacion {
+    background: var(--color-azul-claro);
+    grid-column: span 2;
+}
+
+.seccion-relacionado {
+    background: var(--color-rojo-amaranto);
+    flex: 1 1 auto;
+}
+
+.relacionado-contenido {
+    background: var(--color-amarillo-platano);
+}
+
+.pie {
+    background: var(--color-negro);
+    display: flex;
+    align-items: stretch;
+}
+
+.pie-contenido {
+    background: var(--color-amarillo-ocre);
+    flex-grow: 1;
+}
+
+@media (min-width: 1025px) {
+
+    .contenedor {
+        margin: var(--margin-large);
+    }
+
+    .contenedor *:not(main, .cabecera-contenido) {
+        margin: var(--margin-large);
+        padding: var(--padding-large);
+    }
+
+    .cabecera-contenido {
+        margin: 0 var(--margin-large) var(--margin-large) var(--margin-large);
+        padding: var(--padding-large);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .contenedor {
+        margin: var(--margin-medium);
+    }
+
+    .contenedor *:not(main, .cabecera-contenido) {
+        margin: var(--margin-medium);
+        padding: var(--padding-medium);
+    }
+
+    .cabecera-contenido {
+        margin: 0 var(--margin-medium) var(--margin-medium) var(--margin-medium);
+        padding: var(--padding-medium);
+    }
+
+    .seccion {
+        background: var(--color-amarillo-puro);
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) { 
+
+    .contenedor {
+        margin: var(--margin-small);
+    }
+
+    .contenedor *:not(main) {
+        margin: var(--margin-small);
+        padding: var(--padding-small);
+    }
+
+    .cabecera-menu {
+        flex-flow: column;
+        align-items: stretch;        
+    }
+
+    .seccion {
+        background: var(--color-amarillo-puro);
+        flex-direction: column;
+    }
+
+    .seccion-articulos {
+        background: var(--color-gris-slate);
+        grid-template-columns: 1fr;
+    }
+
+    .articulos-elemento {
+        background: var(--color-azul-claro);
+    }
+
+    .articulos-navegacion {
+        background: var(--color-azul-ceruleo);
+        grid-column: span 1;
+    }
+
+    .seccion-relacionado {
+        background: var(--color-naranja-mandarina);
+    }
+
+    .relacionado-contenido {
+        background: var(--color-amarillo-ocre);
+    }
+
+    .pie-contenido {
+        background: var(--color-amarillo-platano);
+    }
+}
