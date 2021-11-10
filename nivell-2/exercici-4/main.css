@@ -1,0 +1,184 @@
+/**********************************************************************/
+/****************************** VARIABLES *****************************/
+/**********************************************************************/
+:root {
+    --color-rojo-bermellon:    #f08080;
+    --color-naranja-buda:      #f5835a;
+    --color-amarillo-platano:  #f0e68c;
+    --color-gris-html:         #808080;
+    --color-gris-soft:         #d8d7d7;
+    --color-gris-frame:        #f5f1f1;
+    --color-gris-cabecera:     rgba(50, 50, 50, 0.1);
+    --style-link-underline:    2px solid var(--color-rojo-bermellon);
+}
+
+/**********************************************************************/
+/****************************** ESTRUCTURA GENERAL ********************/
+/**********************************************************************/
+
+/****************************** * BODY UL *****************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; 
+}
+
+body {
+    background: #fff;      
+}
+
+ul {
+    list-style: none;
+}
+
+/****************************** CONTENEDOR ****************************/
+.contenedor {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1200px;
+    display: flex;    
+    flex-direction: column;  
+}
+
+/****************************** CABECERA ******************************/
+.cabecera {
+    flex-basis: 405px;
+    background: url(img/header.jpg) no-repeat center center; 
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+}
+
+/****************************** CABECERA MENU PRINCIPAL ***************/
+.menu {
+    margin: 60px 15px 0 15px;
+    display: flex;
+}
+
+.menu-logo {
+    width: 75px;
+    cursor: pointer;
+    order: 1;
+}
+
+.menu-principal {
+    flex-grow: 1;
+    display: flex;  
+    order: 2;
+}
+
+.menu-principal ul{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;    
+    justify-content: space-evenly;   
+}
+
+.menu-principal ul li a{
+    font-size: 1rem;  
+}
+
+/****************************** CABECERA MENU REDES *******************/
+.menu-redes {
+    flex-grow: 0.1;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    order: 3;
+}
+
+.menu-redes li:last-child {
+    padding-left: 20px;
+}
+
+/****************************** CABECERA MENU A, A:HOVER **************/
+.menu-principal li a,
+.menu-redes li a {
+    color: var(--color-gris-html);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-principal li a:hover{
+    padding-bottom: 4px;
+    color: var(--color-rojo-bermellon);
+    border-bottom: var(--style-link-underline);
+}
+
+.menu-redes li a:hover{
+    color: var(--color-rojo-bermellon);
+}
+
+/****************************** CABECERA RECLAMO **********************/
+.reclamo {
+    margin: 0 75px;
+    flex-basis: 135px;
+    background-color: var(--color-gris-cabecera);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reclamo blockquote {
+    margin-top: 30px;
+    font-family: 'IM Fell Double Pica', serif;
+    font-size: 2.02rem;
+    color: var(--color-naranja-buda);
+    opacity: 0.7;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/**********************************************************************/
+/****************************** MEDIA QUERY ***************************/
+/**********************************************************************/
+
+
+/**********************************************************************/
+/****************************** PHONE *********************************/
+/**********************************************************************/
+@media (max-width: 767px) { 
+
+/****************************** CABECERA MENU PRINCIPAL ***************/
+    .menu {
+        margin: 15px;
+        flex-direction: column;
+    }
+
+    .menu-logo {
+        align-self: center;
+        width: 90px;
+    }
+
+    .menu-principal {
+        margin-top: 5px; 
+        padding: 4px;
+    }
+
+    .off {
+        display: none;
+    }
+
+    .menu-principal li a:hover{
+        border-bottom: none;
+    }
+
+    .menu-principal ul li a{
+        font-size: 2rem;  
+    }
+
+    .menu-redes {
+        margin-top: 5px;
+        order:1;
+    }
+
+    .menu-redes li a{
+        font-size: 1.7rem;
+    }
+
+    .reclamo {
+        margin: 0 10px;
+    }
+}
