@@ -1,0 +1,416 @@
+/**********************************************************************/
+/****************************** VARIABLES *****************************/
+/**********************************************************************/
+:root {
+    --color-rojo-bermellon:    #f08080;
+    --color-naranja-buda:      #f5835a;
+    --color-amarillo-platano:  #f0e68c;
+    --color-gris-html:         #808080;
+    --color-gris-soft:         #d8d7d7;
+    --color-gris-frame:        #f5f1f1;
+    --color-gris-cabecera:     rgba(50, 50, 50, 0.1);
+    --style-link-underline:    2px solid var(--color-rojo-bermellon);
+}
+
+/**********************************************************************/
+/****************************** ESTRUCTURA GENERAL ********************/
+/**********************************************************************/
+
+/****************************** * BODY UL *****************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; 
+}
+
+body {
+    background: #fff;      
+}
+
+ul {
+    list-style: none;
+}
+
+/****************************** CONTENEDOR ****************************/
+.contenedor {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1200px;
+    display: flex;    
+    flex-direction: column;  
+}
+
+/****************************** CABECERA ******************************/
+.cabecera {
+    flex-basis: 405px;
+    background: url(img/header.jpg) no-repeat center center; 
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    animation: moverAbajo 1s ease-out;
+}
+
+/****************************** CABECERA MENU PRINCIPAL ***************/
+.menu {
+    margin: 60px 15px 0 15px;
+    display: flex;
+}
+
+.menu-logo {
+    width: 75px;
+    cursor: pointer;
+    order: 1;
+    animation: moverIzquierda 1s ease-out;
+}
+
+.menu-principal {
+    flex-grow: 1;
+    display: flex;  
+    order: 2;
+    animation: moverIzquierda 1s ease-out;
+}
+
+.menu-principal ul{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;    
+    justify-content: space-evenly;   
+}
+
+.menu-principal ul li a{
+    font-size: 1rem;  
+}
+
+/****************************** CABECERA MENU REDES *******************/
+.menu-redes {
+    flex-grow: 0.1;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    order: 3;
+    animation: moverIzquierda 1s ease-out;
+}
+
+.menu-redes li:last-child {
+    padding-left: 20px;
+}
+
+/****************************** CABECERA MENU A, A:HOVER **************/
+.menu-principal li a,
+.menu-redes li a {
+    color: var(--color-gris-html);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-principal li a:hover{
+    padding-bottom: 4px;
+    color: var(--color-rojo-bermellon);
+    border-bottom: var(--style-link-underline);
+}
+
+.menu-redes li a:hover{
+    color: var(--color-rojo-bermellon);
+}
+
+/****************************** CABECERA RECLAMO **********************/
+.reclamo {
+    margin: 0 75px;
+    flex-basis: 135px;
+    background-color: var(--color-gris-cabecera);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reclamo blockquote {
+    margin-top: 30px;
+    font-family: 'IM Fell Double Pica', serif;
+    font-size: 2.02rem;
+    color: var(--color-naranja-buda);
+    opacity: 0.7;
+    text-align: center;
+    cursor: pointer;
+    animation: moverDerecha 1s ease-out;
+}
+
+/****************************** CONTENIDO *****************************/
+.seccion {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    animation: moverArriba 1s ease-out;
+    opacity: 1;
+}
+
+/****************************** ARTICULOS *****************************/
+.articulos {
+    flex: 1 1 920px;
+    background: var(--color-gris-soft);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/****************************** ARTICULO ******************************/
+.articulo {
+    margin: 10px;
+    padding: 10px;
+    flex: 1 1 45%;
+    background: var(--color-gris-frame);
+}
+
+/****************************** ARTICULO IMAGEN SUPERIOR **************/
+.articulo-img {
+    margin-bottom: 5px;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.articulo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articulo h3 {
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+    color: var(--color-amarillo-platano);
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/****************************** ARTICULO ROTULO ***********************/
+.articulo-titulo {
+    margin-bottom: 20px;
+    height: 40px;
+    background-color: var(--color-rojo-bermellon);
+    display: flex;
+    align-items: flex-end;
+}
+
+.articulo-titulo h2 {
+    padding-left: 5px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5625rem;
+    color: white;  
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/****************************** ARTICULO PARRAFO **********************/
+.articulo p {
+    margin-bottom: 20px;
+    columns: 2;
+}
+
+/****************************** ARTICULO LEER MAS... ******************/
+.articulo a {
+    color: var(--color-gris-html);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.articulo a:hover {
+    color: var(--color-rojo-bermellon);
+}
+
+/****************************** ARTICULOS NAV INFERIOR ****************/
+.navegacion {
+    margin: 10px;
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+/****************************** RELACIONADO ***************************/
+.seccion-relacionado {
+    flex: 1 1 280px;
+    background: var(--color-gris-soft);
+    font-size: 1rem;
+}
+
+.seccion-relacionado p{
+    margin-top: 35px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.seccion-relacionado p b{
+    font-size: 1.2rem;
+}
+
+/****************************** FOOTER ********************************/
+footer {
+    flex-basis: 39px;
+    background-color: var(--color-gris-soft);
+    display: flex; 
+    animation: moverArriba 1s ease-out; 
+}
+
+.copyright {   
+    margin: 0 10px;
+    flex-basis: 100%;
+    background-color: var(--color-gris-frame);
+    color: var(--color-gris-html);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.copyright p:hover{   
+    color: var(--color-rojo-bermellon);
+    cursor: pointer;
+}
+
+
+/**********************************************************************/
+/****************************** ANIMACIONES ***************************/
+/**********************************************************************/
+@keyframes moverIzquierda {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moverAbajo {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moverArriba {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moverDerecha {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        
+    }
+    100% {
+        opacity: 0.7;
+        transform: translateX(0);
+    }
+}
+
+/**********************************************************************/
+/****************************** MEDIA QUERY ***************************/
+/**********************************************************************/
+
+/**********************************************************************/
+/****************************** TABLET ********************************/
+/**********************************************************************/
+@media (min-width: 768px) and (max-width: 1024px) {
+
+/****************************** CONTENIDO *****************************/
+    .seccion {
+        flex-direction: column;
+    }
+
+/****************************** ARTICULOS *****************************/
+    .articulos {
+        flex: 1 1 auto;
+    }
+
+/****************************** RELACIONADO ***************************/
+    .seccion-relacionado {
+        flex: 1 1 auto;
+    }
+
+    .seccion-relacionado p{
+        margin-bottom: 35px;
+    }
+}
+/**********************************************************************/
+/****************************** PHONE *********************************/
+/**********************************************************************/
+@media (max-width: 767px) { 
+
+/****************************** CABECERA MENU PRINCIPAL ***************/
+    .menu {
+        margin: 15px;
+        flex-direction: column;
+    }
+
+    .menu-logo {
+        align-self: center;
+        width: 90px;
+    }
+
+    .menu-principal {
+        margin-top: 5px; 
+        padding: 4px;
+    }
+
+    .off {
+        display: none;
+    }
+
+    .menu-principal li a:hover{
+        border-bottom: none;
+    }
+
+    .menu-principal ul li a{
+        font-size: 2rem;  
+    }
+
+    .menu-redes {
+        margin-top: 5px;
+        order:1;
+    }
+
+    .menu-redes li a{
+        font-size: 1.7rem;
+    }
+
+    .reclamo {
+        margin: 0 10px;
+    }
+
+/****************************** CONTENIDO *****************************/
+    .seccion {
+        flex-direction: column;
+    }
+
+/****************************** ARTICULO ******************************/
+    .articulo {
+        flex: 1 1 auto;
+    }
+
+/****************************** RELACIONADO ***************************/
+    .seccion-relacionado {
+        flex: 1 1 auto;
+    }
+
+    .seccion-relacionado p{
+        margin-bottom: 35px;
+    }
+
+/****************************** ARTICULO PARRAFO **********************/
+    .articulo p {
+        columns: 1;
+    }
+}
